@@ -1,0 +1,55 @@
+.css-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 300px;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.editor-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+.editor-info {
+  font-size: 12px;
+  color: #666;
+  background: #f0f0f0;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.code-textarea {
+  flex: 1;
+  width: 100%;
+  min-height: 250px;
+  padding: 15px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  resize: vertical;
+  outline: none;
+  background: #f8f9fa;
+  color: #333;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.code-textarea:focus {
+  border-color: #667eea;
+  background: #fff;
+}
+
+.code-textarea::placeholder {
+  color: #999;
+}
