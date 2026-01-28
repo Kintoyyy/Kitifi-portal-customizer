@@ -12,7 +12,19 @@ function Preview({ html, css }) {
     if (!document) return;
 
     // Inject the HTML and CSS into the iframe
-    const fullHTML = html.replace('</head>', `<style>${css}</style></head>`);
+    let fullHTML = html;
+    
+    // If there's a closing head tag, inject the CSS there
+    if (fullHTML.includes('</head>')) {
+      fullHTML = fullHTML.replace('</head>', `<style>${css}</style></head>`);
+    } else if (fullHTML.includes('<head>')) {
+      // If there's an opening head tag but no closing, add after opening tag
+      fullHTML = fullHTML.replace('<head>', `<head><style>${css}</style>`);
+    } else {
+      // If no head tag, wrap content with full HTML structure including CSS
+      fullHTML = `<!DOCTYPE html><html><head><style>${css}</style></head><body>${html}</body></html>`;
+    }
+    
     document.open();
     document.write(fullHTML);
     document.close();
@@ -30,6 +42,8 @@ function Preview({ html, css }) {
           className="preview-iframe"
           title="Preview"
           sandbox="allow-same-origin"
+          // Note: Scripts are intentionally disabled for security
+          // to prevent execution of potentially malicious user input
         />
       </div>
     </div>

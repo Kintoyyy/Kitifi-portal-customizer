@@ -42,7 +42,7 @@ const defaultHTML = `<!DOCTYPE html>
     </div>
     
     <div class="footer">
-      <p>&copy; 2024 Your Company. All rights reserved.</p>
+      <p>&copy; 2026 Your Company. All rights reserved.</p>
       <p class="terms">
         <a href="#" class="link">Terms of Service</a> | 
         <a href="#" class="link">Privacy Policy</a>
